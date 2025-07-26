@@ -1,0 +1,45 @@
+<div class="grid">
+    <div class="col-12 md:col-12">
+        <div class="profile header">
+            <h2>
+                Profile Info
+            </h2>
+            <h3>
+                Galleria Drag and Drop
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="grid">
+    <div class="col-12 md:col-4">
+        <p-panel header="My Profile Picture" pDroppable="profilePic" (onDrop)="onPicDrop()">
+            <div class="grid">
+                <div class="col-12">
+                    <img *ngIf="profileImage; else showDropDiv" [src]="profileImage" style="width: 100%;" />
+                </div>
+                <div class="col-12">
+                    <ng-template #showDropDiv>
+                        <span>Drop Your Image Here</span>
+                    </ng-template>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+    <div class="col-12 md:col-1 spacer"></div>
+    <div class="col-12 md:col-7">
+        <p-galleria #galleria [value]="images" [containerStyle]="{'max-width': '300px'}" [numVisible]="3"
+            pDraggable="profilePic" (onDragStart)="onDragStart(galleria)">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.previewImageSrc" [alt]="item.alt" style="width: 100%;" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="p-grid p-nogutter p-justify-center">
+                    <img [src]="item.thumbnailImageSrc" />
+                </div>
+            </ng-template>
+            <ng-template pTemplate="caption" let-item>
+                <h4 style="margin-bottom: .5rem; color: #ffffff;">{{ item.title }}</h4>
+            </ng-template>
+        </p-galleria>
+    </div>
+</div>

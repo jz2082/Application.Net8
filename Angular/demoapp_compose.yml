@@ -1,0 +1,17 @@
+services:
+  angular18-dataapi-demoapp:
+    container_name: angular18-dataapi-demoapp
+    image: angular18-dataapi-demoapp
+    build:
+      context: .
+      dockerfile: dataapi_demoapp_nginx.Dockerfile
+    ports:
+      - 4233:4233
+    restart: always
+    networks:
+      - net8app-network
+
+networks:
+  net8app-network:
+    driver: bridge
+

@@ -1,0 +1,129 @@
+<form [formGroup]="entityForm">
+    <div class="grid p-fluid grid-nogutter">
+        <div class="col-12 md:col-12">
+            <p-table #dt [value]="productList" sortField="price" showGridlines stripedRows dataKey="productId"
+                [loading]="isLoading" [rowHover]="true" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                [paginator]="true" [rows]="3" [rowsPerPageOptions]="[5, 10, 20]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [globalFilterFields]="['productCode']" [tableStyle]="{'min-width': '50rem'}">
+                <ng-template #caption>
+                    <div class="grid grid-nogutter">
+                        <div class="col-12 md:col-3 flex align-items-center justify-content-center">
+                            <p-iconfield iconPosition="left" class="ml-auto">
+                                <p-inputicon>
+                                    <i class="pi pi-search"></i>
+                                </p-inputicon>
+                                <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
+                                    placeholder="Search keyword" />
+                            </p-iconfield>
+                        </div>
+                        <div class="col-12 md:col-6 flex align-items-center justify-content-center">
+                            <b>{{ pageTitle }}</b>
+                        </div>
+                        <div class="col-12 md:col-3 flex align-items-right">
+                            <button id="addNew" label="Add New" pButton class="ui-button-raised"
+                                (click)="onDialogShowToAdd($event)" *ngIf="!isAddNew"></button>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template #header>
+                    <tr>
+                        <th style="width:5%"></th>
+                        <th pSortableColumn="productId" style="width:5%">
+                            <div class="flex justify-content-center align-items-center">
+                                Id <p-sortIcon field="productId" />
+                            </div>
+                        </th>
+                        <th style="width:15%">
+                            <div class="flex justify-content-center align-items-center">
+                                Code
+                            </div>
+                        </th>
+                        <th pSortableColumn="name" style="width:15%">
+                            <div class="flex justify-content-center align-items-center">
+                                Name <p-sortIcon field="name" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="price" style="width:10%">
+                            <div class="flex justify-content-center align-items-center">
+                                Price <p-sortIcon field="price" />
+                            </div>
+                        </th>
+                        <th style="width:40%">
+                            <div class="flex justify-content-center align-items-center">
+                                Description
+                            </div>
+                        </th>
+                        <th style="width:10%">
+                            <div class="flex justify-content-center align-items-center">
+                                Image
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <p-columnFilter type="text" field="productCode"
+                                placeholder="Search by code"></p-columnFilter>
+                        </th>
+                        <th></th>
+                        <th></th>
+                        <th><p-columnFilter type="text" field="description"
+                                placeholder="Search by description"></p-columnFilter></th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template #body let-rowData let-expanded="expanded">
+                    <tr [pSelectableRow]="rowData">
+                        <td>
+                            <button type="button" pButton pRipple [pRowToggler]="rowData"
+                                class="p-button-text p-button-rounded p-button-plain"
+                                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                            </button>
+                        </td>
+                        <td>{{ rowData.productId }}</td>
+                        <td>{{ rowData.productCode }}</td>
+                        <td>{{ rowData.productName }}</td>
+                        <td>{{ rowData.price | currency:'USD':'symbol':'0.0-2' }}</td>
+                        <td>{{ rowData.description }}</td>
+                        <td>
+                            <img [src]=rowData.imageUrl [alt]="rowData.productName" width="25px" height="25px" />
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="rowexpansion" let-rowData>
+                    <tr>
+                        <td [attr.colspan]="7">
+                            <common-nodelist-view [entity]="rowData"></common-nodelist-view>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template #paginatorleft>
+                    <p-button type="button" icon="pi pi-plus" text />
+                </ng-template>
+                <ng-template #paginatorright>
+                    <p-button type="button" icon="pi pi-cloud" text />
+                </ng-template>
+                <ng-template #emptymessage let-rowData>
+                    <tr>
+                        <td [attr.colspan]="7">No records found</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="col-12 md:col-12">
+            <control-message [form]="entityForm" controlName="summaryMessage" firendlyName="Summary">
+            </control-message>
+        </div>
+    </div>
+</form>
+<p-dialog [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+    (onHide)="onDialogHide($event)">
+    <div class="grid" *ngIf="displayDialog">
+        <div class="col-12 md:col-12">
+            <demo-product-edit [entity]="selectedEntity" [isNew]="isAddNew"
+                [refreshFunc]="refreshDataList"></demo-product-edit>
+        </div>
+    </div>
+</p-dialog>

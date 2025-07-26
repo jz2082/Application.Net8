@@ -1,0 +1,13 @@
+<div class="statistic grid" [style.background-color]="colour">
+    <div class="icon col-12 md:col-5">
+        <i class="{{ icon }}" style="font-size: 70px" *ngIf="icon"></i>
+    </div>
+    <div class="data col-12 md:col-7">
+        <div class="value">
+            {{ value }}
+        </div>
+        <div class="label" *ngIf="label">
+            {{ label }}
+        </div>
+    </div>
+</div>

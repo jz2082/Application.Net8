@@ -1,0 +1,34 @@
+<div class="grid">
+    <pluralsight-statistic label="My Hours" value="132" icon="pi pi-clock" colour="#00ACAC" class="col-12 md:col-3">
+    </pluralsight-statistic>
+    <pluralsight-statistic label="Stories" value="35" icon="pi pi-users" colour="#2F8EE5" class="col-12 md:col-3"></pluralsight-statistic>
+    <pluralsight-statistic label="Remaining" value="23" icon="pi pi-cloud" colour="#6C76AF" class="col-12 md:col-3">
+    </pluralsight-statistic>
+    <pluralsight-statistic label="Sprints" value="4" icon="pi pi-chart-bar" colour="#EFA64C" class="col-12 md:col-3">
+    </pluralsight-statistic>
+</div>
+<div class="grid">
+    <p-panel header="Hours By Project (pie)" class="col-12 md:col-6">
+        <p-chart type="pie" [data]="hoursByProjectChartData" [options]="chartOptions"></p-chart>
+    </p-panel>
+    <p-panel header="Hours By Project (doughnut)" class="col-12 md:col-6">
+        <p-chart type="doughnut" [data]="hoursByProjectChartData"></p-chart>
+    </p-panel>
+</div>
+<div class="grid">
+    <p-panel header="Hours By Team (bar)" class="col-12 md:col-6">
+        <p-chart type="bar" [data]="hoursByTeamChartData"></p-chart>
+    </p-panel>
+    <p-panel header="Hours By Team (line)" class="col-12 md:col-6">
+        <p-chart type="line" [data]="hoursByTeamChartData"></p-chart>
+    </p-panel>
+</div>
+<div class="grid">
+    <p-panel header="Hours By Team (radar)" class="col-12 md:col-6">
+        <p-chart type="radar" height="308" [data]="hoursByTeamChartData"></p-chart>
+    </p-panel>
+    <p-panel header="Hours By Team (mixed)" class="col-12 md:col-6">
+        <p-chart type="bar" [data]="hoursByTeamChartDataMixed" #mixedChart
+            (onDataSelect)="onDataSelect($event)"></p-chart>
+    </p-panel>
+</div>

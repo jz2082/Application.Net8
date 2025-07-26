@@ -1,0 +1,79 @@
+<form [formGroup]="entityForm">
+    <div class="grid p-fluid grid-nogutter">
+        <div class="col-12 md:col-12">
+            <p-table #dt [value]="loggerInfoList" showGridlines stripedRows dataKey="id" [loading]="isLoading"
+                [rowHover]="true" selectionMode="single" (onRowSelect)="onRowSelect($event)" [paginator]="true"
+                [rows]="5" [rowsPerPageOptions]="[5, 10, 20]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-center">
+                        <b>{{ pageTitle }}</b>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3em;"></th>
+                        <th style="width: 15%;">
+                            <div class="flex justify-content-center align-items-center">
+                                Date
+                            </div>
+                        </th>
+                        <th style="width: 10%;">
+                            <div class="flex justify-content-center align-items-center">
+                                Environment
+                            </div>
+                        </th>
+                        <th style="width: 10%;">
+                            <div class="flex justify-content-center align-items-center">
+                                Level
+                            </div>
+                        </th>
+                        <th style="width: 65%;">
+                            <div class="flex justify-content-center align-items-center">
+                                Message
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-expanded="expanded">
+                    <tr [pSelectableRow]="rowData">
+                        <td>
+                            <button type="button" pButton pRipple [pRowToggler]="rowData"
+                                class="p-button-text p-button-rounded p-button-plain"
+                                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                            </button>
+                        </td>
+                        <td>{{ rowData.timeStamp | date: 'yyyy-MM-dd' }}</td>
+                        <td>{{ rowData.environment }}</td>
+                        <td>{{ rowData.level }}</td>
+                        <td>{{ rowData.message }}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="rowexpansion" let-rowData>
+                    <tr>
+                        <td [attr.colspan]="6">
+                            <common-nodelist-view [entity]="rowData"></common-nodelist-view>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-rowData>
+                    <tr>
+                        <td [attr.colspan]="6">No records found</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="col-12 md:col-12">
+            <control-message [form]="entityForm" controlName="summaryMessage" firendlyName="Summary">
+            </control-message>
+        </div>
+    </div>
+</form>
+<p-dialog header="ApplogInfo" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"
+    (onHide)="onDialogHide($event)">
+    <div class="grid" *ngIf="displayDialog">
+        <div class="col-12 md:col-12">
+            <common-applog-edit [entity]="selectedEntity" [refreshFunc]="refreshDataList"></common-applog-edit>
+        </div>
+    </div>
+</p-dialog>

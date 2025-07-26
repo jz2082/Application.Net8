@@ -1,0 +1,117 @@
+<form [formGroup]="entityForm" style="font-size: 10px !important;" (ngSubmit)="onSubmit()">
+  <div class="grid grid-nogutter">
+    <div class="col-12 md:col-12" *ngIf="!isLoading">
+      <p-panel>
+        <p-header>
+          <div class="flex align-items-center justify-content-center">
+            <p><b>{{ pageTitle }}</b></p>
+          </div>
+        </p-header>
+        <div class="grid p-fluid">
+          <div class="col-12 md:col-4">
+            <label for="environment" class="block">Environment</label>
+            <input id="environment" formControlName="environment" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="environment" firendlyName="Environment">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="machineName" class="block">Machine Name</label>
+            <input id="machineName" formControlName="machineName" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="machineName" firendlyName="Machine Name">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="loggerName" class="block">Logger Name</label>
+            <input id="loggerName" formControlName="loggerName" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="loggerName" firendlyName="Logger Name">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="level" class="block">Level</label>
+            <input id="level" formControlName="level" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="level" firendlyName="Level">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="timeStamp" class="block">TimeStamp</label>
+            <p-datepicker id="timeStamp" formControlName="timeStamp" [showIcon]="true"></p-datepicker>
+            <control-message [form]="entityForm" controlName="timeStamp" firendlyName="TimeStamp">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="userName" class="block">User Name</label>
+            <input id="userName" formControlName="userName" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="userName" firendlyName="User Name">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="application" class="block">Application</label>
+            <input id="application" formControlName="application" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="application" firendlyName="Application">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="module" class="block">Module</label>
+            <input id="module" formControlName="module" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="module" firendlyName="Module">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-4">
+            <label for="method" class="block">Method</label>
+            <input id="method" formControlName="method" type="text" pInputText />
+            <control-message [form]="entityForm" controlName="method" firendlyName="Method">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-12">
+            <label for="message" class="block">Message</label>
+            <textarea formControlName="message" rows="5" cols="120" pTextarea [autoResize]="true"></textarea>
+            <control-message [form]="entityForm" controlName="message" firendlyName="Message">
+            </control-message>
+          </div>
+          <div class="col-12 md:col-12">
+            <control-message [form]="entityForm" controlName="summaryMessage" firendlyName="Summary">
+            </control-message>
+          </div>
+        </div>
+        <ng-template pTemplate="footer">
+          <div class="grid">
+            <div class="col-12 md:col-12" *ngIf="isEditable">
+              <div class="grid p-fluid">
+                <div class="col-12 md:col-3">
+                  &nbsp;
+                </div>
+                <div class="col-12 md:col-3">
+                  &nbsp;
+                </div>
+                <div class="col-12 md:col-3" *ngIf="!isFormEdit && !isDeleting">
+                  <button label="Delete" pButton type="button" class="ui-button-raised" (click)="onDelete()"></button>
+                </div>
+                <div class="col-12 md:col-3" *ngIf="!isFormEdit && isDeleting">
+                  <button label=" Deleting ..." pButton type="button" class="ui-button-raised"
+                    icon="pi pi-spin pi-spinner" iconPos="right" [disabled]="isDeleting"></button>
+                </div>
+                <div class="col-12 md:col-3" *ngIf="isFormEdit">
+                  <button label="Cancel" pButton type="button" class="ui-button-raised ui-button-secondary"
+                    [disabled]="isSaving" (click)="cancel()"></button>
+                </div>
+                <div class="col-12 md:col-3" *ngIf="!isFormEdit && !isDeleting">
+                  <button label="Edit" pButton type="button" class="ui-button-raised" (click)="edit()"></button>
+                </div>
+                <div class="col-12 md:col-3" *ngIf="isFormEdit && isSaving">
+                  <button label="Saving ..." pButton type="submit" class="ui-button-raised" icon="pi pi-spin pi-spinner"
+                    iconPos="right" [disabled]="isSaving"></button>
+                </div>
+                <div class="col-12 md:col-3" *ngIf="isFormEdit && !isSaving">
+                  <button label="Save" pButton type="submit" class="ui-button-raised" [disabled]="isSaving"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-panel>
+    </div>
+    <div class="col-12 md:col-12">
+      <common-loading *ngIf="isLoading"></common-loading>
+    </div>
+  </div>
+</form>

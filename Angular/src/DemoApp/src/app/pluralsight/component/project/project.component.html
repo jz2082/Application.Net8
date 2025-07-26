@@ -1,0 +1,99 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <p-panel header="Add Project">
+        <div class="grid">
+            <div class="col-12 md:col-2">
+                <label for="projectId">Project Id*</label>
+            </div>
+            <div class="col-12 md:col-5">
+                <p-inputMask mask="aaa-999" id="projectId" formControlName="projectId" placeholder="ABC-123"
+                    slotChar="?">
+                </p-inputMask>
+            </div>
+            <div class="col-12 md:col-5">
+                <control-message [form]="projectForm" controlName="projectId"
+                    firendlyName="Project ID"></control-message>
+            </div>
+        </div>
+        <div class="col-12 md:col-2">
+            <label for="startDate">Start Date</label>
+        </div>
+        <div class="col-12 md:col-5">
+            <p-datepicker [showIcon]="true" id="startDate" formControlName="startDate" dateFormat="dd/mm/yy"
+                [minDate]="minProjectDate"></p-datepicker>
+        </div>
+        <div class="col-12 md:col-5">
+            <control-message [form]="projectForm" controlName="startDate" firendlyName="Start Date"></control-message>
+        </div>
+        <div class="col-12 md:col-12">
+            <p-fieldset legend="Project Type" [toggleable]="true" [collapsed]="false">
+                <div class="grid">
+                    <div class="col-12 md:col-12 field-radiobutton">
+                        <label for="city1">Front End</label>
+                        <p-radioButton inputId="city1" formControlName="projectType" value="F"></p-radioButton>
+                    </div>
+                    <div class="col-12 md:col-12 field-radiobutton">
+                        <label for="city2">Backend End</label>
+                        <p-radioButton inputId="city2" formControlName="projectType" value="B"></p-radioButton>
+                    </div>
+                    <div class="col-12 md:col-12 field-radiobutton">
+                        <label for="city3">Operations</label>
+                        <p-radioButton inputId="city3" formControlName="projectType" value="O"></p-radioButton>
+                    </div>
+                </div>
+            </p-fieldset>
+        </div>
+        <div class="col-12 md:col-2">
+            <label for="devs">Assigned Devs</label>
+        </div>
+        <div class="col-12 md:col-10">
+            <p-listbox id="devs" [options]="allDevs" [multiple]="true" [filter]="true" formControlName="selectedDevs">
+                <ng-template let-dev pTemplate="item">
+                    <img src="https://i.pravatar.cc/100?u={{ dev.label }}" class="avatar" />
+                    <span class="devName">{{ dev.value }}</span>
+                </ng-template>
+            </p-listbox>
+        </div>
+        <div class="col-12 md:col-2">
+            <label id="ratingLabel" for="rating">Project Coolness</label>
+        </div>
+        <div class="col-12 md:col-5">
+            <p-rating id="rating" formControlName="rating"></p-rating>
+        </div>
+        <div class="col-12 md:col-5">
+            <pre>{{ projectForm.getRawValue() | json }}</pre>
+        </div>
+        <div class="col-12 md:col-12">
+            <button pButton type="submit" [disabled]="hasFormErrors()" label="Save" icon="pi pi-save"></button>
+        </div>
+        <div class="col-12 md:col-12">
+            <label for="description">Description</label>
+        </div>
+        <div class="col-12 md:col-12">
+            <p-editor id="description" formControlName="description" [style]="{ height: '200px' }"></p-editor>
+        </div>
+        <div class="col-12 md:col-12">
+            <control-message [form]="projectForm" controlName="description"
+                firendlyName="Description"></control-message>
+        </div>
+    </p-panel>
+</form>
+<div class="grid">
+    <div class="col-12 md:col-12">
+        <div class="p-field-radiobutton">
+            <p-radioButton name="city" value="Chicago" [(ngModel)]="city" inputId="city1"></p-radioButton>
+            <label for="city1">Chicago</label>
+        </div>
+        <div class="p-field-radiobutton">
+            <p-radioButton name="city" value="Los Angeles" [(ngModel)]="city" inputId="city2"></p-radioButton>
+            <label for="city2">Los Angeles</label>
+        </div>
+        <div class="p-field-radiobutton">
+            <p-radioButton name="city" value="New York" [(ngModel)]="city" inputId="city3"></p-radioButton>
+            <label for="city3">New York</label>
+        </div>
+        <div class="p-field-radiobutton">
+            <p-radioButton name="city" value="San Francisco" [(ngModel)]="city" inputId="city4"></p-radioButton>
+            <label for="city4">San Francisco</label>
+        </div>
+    </div>
+</div>

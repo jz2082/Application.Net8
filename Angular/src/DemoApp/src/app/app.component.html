@@ -1,0 +1,38 @@
+<div class="grid">
+  <div class="col-12">
+    <p-toast position="top-right" key="componentMsg"></p-toast>
+  </div>
+  <div class="col-12">
+    <div class="grid">
+      <div class="col-12">
+        <common-header></common-header>
+      </div>
+      <div class="col-12">
+        <div class="grid" *ngIf="!isScreenSmall; else smallScreen">
+          <div class="col-2">
+            <common-menu></common-menu>
+          </div>
+          <div class="col-10">
+            <router-outlet></router-outlet>
+          </div>
+          <div class="col-12">
+            <common-footer></common-footer>
+          </div>
+        </div>
+        <ng-template #smallScreen>
+          <div class="grid grid-nogutter">
+            <div class="col-12">
+              <router-outlet></router-outlet>
+            </div>
+            <div class="col-12">
+              <common-footer></common-footer>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col-12">
+      <p-confirmDialog [style]="{width: '50vw'}" key="componentDialog" position="topright" [baseZIndex]="10000">
+      </p-confirmDialog>
+    </div>
+  </div>

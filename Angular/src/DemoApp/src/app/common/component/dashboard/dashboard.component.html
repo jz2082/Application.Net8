@@ -1,0 +1,79 @@
+<form [formGroup]="entityForm">
+    <div class="grid p-fluid grid-nogutter">
+        <div class="col-12 md:col-12">
+            <p-tabView [(activeIndex)]="panelIndex" (onChange)="handleChange($event)">
+                <p-tabPanel header="Dashboard">
+                    <p-table #dt1 [value]="settingData" showGridlines stripedRows dataKey="key" [rowHover]="true"
+                        [tableStyle]="{ 'min-width': '50rem' }">
+                        <ng-template #header>
+                            <tr>
+                                <th style="width: 30%">Key</th>
+                                <th style="width: 70%">Value</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template #body let-item>
+                            <tr>
+                                <td>{{ item.key }}</td>
+                                <td>{{ item.value }}</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-tabPanel>
+                <p-tabPanel header="HealthCheck">
+                    <p-table #dt2 [value]="healthCheckResultList" dataKey="description" [loading]="isLoading">
+                        <ng-template #header>
+                            <tr>
+                                <th style="width: 3em"></th>
+                                <th>
+                                    <div class="flex justify-content-between align-items-center">
+                                        Description
+                                    </div>
+                                </th>
+                                <th>
+                                    <div class="flex justify-content-between align-items-center">
+                                        Status
+                                    </div>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template #body let-rowData let-expanded="expanded">
+                            <tr>
+                                <td>
+                                    <button type="button" pButton pRipple [pRowToggler]="rowData"
+                                        class="p-button-text p-button-rounded p-button-plain" [icon]="
+                                              expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'
+                                            "></button>
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Description</span>
+                                    {{ rowData.description }}
+                                </td>
+                                <td>
+                                    <span class="p-column-title">Status</span>
+                                    {{ rowData.status }}
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="rowexpansion" let-rowData>
+                            <tr>
+                                <td [attr.colspan]="2">
+                                    <common-nodelist-view [entity]="rowData"></common-nodelist-view>
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage" let-rowData>
+                            <tr>
+                                <td [attr.colspan]="2">No records found</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+        <div class="col-12 md:col-12">
+            <control-message [form]="entityForm" controlName="summaryMessage" firendlyName="Summary">
+            </control-message>
+        </div>
+
+    </div>
+</form>

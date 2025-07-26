@@ -1,0 +1,103 @@
+<form [formGroup]="entityForm" style="font-size: 16px !important;" (ngSubmit)="onSubmit()">
+    <div class="grid">
+        <div class="col-12 md:col-12 text-center font-bold">
+            {{ pageTitle }}
+        </div>
+    </div>
+    <p-panel>
+        <div class="grid">
+            <div class="col-12 md:col-4">
+                <label for="productId">Id</label>
+                <input pInputText type="text" id="productId" formControlName="productId" fluid="true" />
+                <control-message [form]="entityForm" controlName="productId" firendlyName="Product Id">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="productCode">Product Code</label>
+                <input pInputText type="text" id="productCode" formControlName="productCode" fluid="true" />
+                <control-message [form]="entityForm" controlName="productCode" firendlyName="Product Code">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="productName">Product Name</label>
+                <input pInputText type="text" id="productName" formControlName="productName" fluid="true" />
+                <control-message [form]="entityForm" controlName="productName" firendlyName="Product Name">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="price">price</label>
+                <input pInputText type="text" id="price" formControlName="price" fluid="true" />
+                <control-message [form]="entityForm" controlName="price" firendlyName="Price">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="releaseDate" class="block">Release Date</label>
+                <p-datepicker id="releaseDate" formControlName="releaseDate" [showIcon]="true" fluid="true" />
+                <control-message [form]="entityForm" controlName="releaseDate" firendlyName="Release Date">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-4">
+                <label for="starRating">Star Rating</label>
+                <p-rating id="starRating" formControlName="starRating" [stars]="5" fluid="true" />
+                <control-message [form]="entityForm" controlName="starRating" firendlyName="starRating">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-12">
+                <label for="imageUrl">imageUrl</label>
+                <input pInputText type="text" id="imageUrl" formControlName="imageUrl" fluid="true" />
+                <control-message [form]="entityForm" controlName="imageUrl" firendlyName="imageUrl">
+                </control-message>
+            </div>
+            <div class="col-12 md:col-12">
+                <p-iftalabel>
+                    <label for="description">description</label>
+                    <textarea pTextarea rows="5" cols="120" id="description" formControlName="description"></textarea>
+                    <control-message [form]="entityForm" controlName="description" firendlyName="description">
+                    </control-message>
+                </p-iftalabel>
+            </div>
+            <div class="col-12 md:col-12">
+                <control-message [form]="entityForm" controlName="summaryMessage" firendlyName="Summary">
+                </control-message>
+            </div>
+        </div>
+        <ng-template #footer>
+            <div class="grid">
+                <div class="col-12 md:col-12" *ngIf="isEditable">
+                    <div class="grid p-fluid">
+                        <div class="col-12 md:col-3">
+                            &nbsp;
+                        </div>
+                        <div class="col-12 md:col-3">
+                            &nbsp;
+                        </div>
+                        <div class="col-12 md:col-3" *ngIf="!isFormEdit && !isDeleting">
+                            <button label="Delete" pButton type="button" class="ui-button-raised"
+                                (click)="onDelete()"></button>
+                        </div>
+                        <div class="col-12 md:col-3" *ngIf="!isFormEdit && isDeleting">
+                            <button label=" Deleting ..." pButton type="button" class="ui-button-raised"
+                                icon="pi pi-spin pi-spinner" iconPos="right" [disabled]="isDeleting"></button>
+                        </div>
+                        <div class="col-12 md:col-3" *ngIf="isFormEdit">
+                            <button label="Cancel" pButton type="button" class="ui-button-raised ui-button-secondary"
+                                [disabled]="isSaving" (click)="cancel()"></button>
+                        </div>
+                        <div class="col-12 md:col-3" *ngIf="!isFormEdit && !isDeleting">
+                            <button label="Edit" pButton type="button" class="ui-button-raised"
+                                (click)="edit()"></button>
+                        </div>
+                        <div class="col-12 md:col-3" *ngIf="isFormEdit && isSaving">
+                            <button label="Saving ..." pButton type="submit" class="ui-button-raised"
+                                icon="pi pi-spin pi-spinner" iconPos="right" [disabled]="isSaving"></button>
+                        </div>
+                        <div class="col-12 md:col-3" *ngIf="isFormEdit && !isSaving">
+                            <button label="Save" pButton type="submit" class="ui-button-raised"
+                                [disabled]="isSaving"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-panel>
+</form>

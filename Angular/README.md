@@ -1,26 +1,32 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## set up HTTPS with Nginx in a Docker environment
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Create a directory for your Nginx configuration files and SSL certificates
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+    mkdir ssl
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Generate self-signed SSL certificates --------------------
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/nginx.key -out ssl/nginx.crt -subj "/CN=localhost"
 
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/nginx18.key -out ssl/nginx18.crt -subj "/CN=192.168.10.18"
 
--------------------
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/nginx20.key -out ssl/nginx20.crt -subj "/CN=192.168.10.20"
 
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/nginx30.key -out ssl/nginx30.crt -subj "/CN=192.168.1.30"
 
-2025.07.25
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ssl/nginxgld.key -out ssl/nginxgld.crt -subj "/CN=jp78f9b.glddns.com"
+
+# production APP NGINX -------------------------------------
+
+    docker compose -f demoapp_compose.yml up -d
+    docker compose -f demoapp_compose.yml down
+
+---
+
+## Angular App on localhost, 192.168.10.20, 192.168.1.30
+
+# 3. DemoApp using DataApi on Docker:
+
+    http://localhost:4203
+    http://localhost:4233
+    https://angularappnet8.azurewebsites.net/DemoApp

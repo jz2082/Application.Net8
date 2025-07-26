@@ -1,0 +1,19 @@
+<form [formGroup]="entityForm">
+    <div class="p-grid">
+        <div class="col-12 md:col-12">
+            <p-tabView [(activeIndex)]="panelIndex" (onChange)="handleChange($event)">
+                <p-tabPanel header="ApiSetting">
+                    <p-tree [value]="apiSettingList" selectionMode="single">
+                        <ng-template let-node pTemplate="default">
+                            {{ node.label }}
+                        </ng-template>
+                    </p-tree>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+        <div class="col-12 md:col-12">
+            <control-message [form]="entityForm" controlName="summaryMessage" firendlyName="Summary">
+            </control-message>
+        </div>
+    </div>
+</form>

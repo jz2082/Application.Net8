@@ -1,0 +1,14 @@
+{
+  "value": {
+    "required": "$firendlyName is required.",
+    "minlength": "$firendlyName must be at least $requiredLength characters.",
+    "maxlength": "$firendlyName cannot exceed $requiredLength characters.",
+    "numberRange": "$firendlyName must between $minimumRange (lowest) and $maximumRange (highest).",
+    "greaterThanZero": "$firendlyName is required and must greater than or equal to 0.",
+    "dateGroupRange": "$startDate must early than $endDate.",
+    "historyDate": "$firendlyName must early than or equal to current Date (Today).",
+    "futureDate": "$firendlyName must greater than or equal to current Date (Today).",
+    "notEarlyThanDate": "$firendlyName can not early than $startDate.",
+    "notLaterThanDate": "$firendlyName can not later than $endDate."
+  }
+}
