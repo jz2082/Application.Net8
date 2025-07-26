@@ -1,0 +1,107 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- none
+
+name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.rr)
+
+# stage build
+stages:
+- stage: Build
+  displayName: Build Stage - DemoApp DataApi
+  pool:
+    vmImage: 'windows-latest'
+
+  variables:
+    solution: '**/DemoApp.DataApi.csproj'
+    buildPlatform: 'Any CPU'
+    buildConfiguration: 'Release'
+
+  jobs:
+  - job: build
+    displayName: Build Job - DemoApp DataApi
+
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '9.0.203'
+
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'restore'
+        projects: '$(solution)'
+        feedsToUse: 'config'
+        nugetConfigPath: 'src/NuGet.config'
+        noCache: true
+
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'    
+        msbuildArgs: '/p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:SkipInvalidConfigurations=true /p:publishUrl="$(build.artifactstagingdirectory)\\"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'DemoApp.DataApi'
+        publishLocation: 'Container'
+
+# stage Deploy runs if Build succeeds
+- stage: Deploy
+  displayName: Deploy Stage - DemoApp DataApi
+  pool:
+    vmImage: 'windows-latest'
+  condition: succeeded('Build')
+
+  jobs:
+  - job: PROD
+    displayName: Deploy to Production
+
+    variables:
+      - group: DemoDataApi
+
+    steps:
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'DemoApp.DataApi'
+        downloadPath: '$(System.ArtifactsDirectory)'
+        checkDownloadedFiles: true
+
+    - task: replacetokens@3
+      inputs:
+        rootDirectory: '$(System.ArtifactsDirectory)/DemoApp.DataApi'
+        targetFiles: '**/appsettings.json'
+        encoding: 'auto'
+        writeBOM: true
+        verbosity: 'detailed'
+        actionOnMissing: 'warn'
+        keepToken: true
+        actionOnNoFiles: 'continue'
+        enableTransforms: false
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+        enableRecursion: false
+        useLegacyPattern: false
+        enableTelemetry: true
+
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'ASUB-PYZ-01(1)(38322fc3-28f3-4d53-9a11-fd5a0f94e99b)'
+        appType: 'webApp'
+        WebAppName: 'DemoDataApiNet8'
+        deployToSlotOrASE: true
+        ResourceGroupName: 'FreeResourceGroup'
+        SlotName: 'production'
+        VirtualApplication: '/'
+        packageForLinux: '$(System.ArtifactsDirectory)/DemoApp.DataApi'
+        enableCustomDeployment: true
+        DeploymentType: 'webDeploy'
+        RemoveAdditionalFilesFlag: true

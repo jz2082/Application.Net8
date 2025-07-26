@@ -1,0 +1,24 @@
+services:
+  net8-demodataapi:
+    container_name: net8-demodataapi
+    image: net8-demodataapi
+    build:
+      context: .
+      dockerfile: DemoDataApi.Dockerfile
+    restart: always
+    ports:
+      - "44813:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=https://+:8081;http://+:8080
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Dudu1120
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    networks:
+      - net8app-network
+
+
+networks:
+  net8app-network:
+    driver: bridge
