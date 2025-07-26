@@ -31,6 +31,7 @@ public class HouseRepository(InMemoryDbContext context, ILogger<HouseRepository>
         if (dto == null) return null;
         return new HouseEntity
         {
+            Id = dto.Id,
             Address = dto.Address,
             Country = dto.Country,
             Description = dto.Description,

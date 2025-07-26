@@ -23,7 +23,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         // Add services to the container.
-        //builder.Services.AddControllers();
+        // builder.Services.AddControllers();
         builder.Services.AddControllersWithViews();
 
         builder.Services

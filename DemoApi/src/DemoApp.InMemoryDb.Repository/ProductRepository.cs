@@ -320,8 +320,8 @@ public class ProductRepository(InMemoryDbContext context, ILogger<ProductReposit
         try
         {
             ClearViolation();
-            var entity = await _context.Products.FindAsync(dto.Id) ?? throw new ArgumentException(
-                $"Trying to update product: entity with ID {dto.Id} not found."
+            var entity = await _context.Products.FindAsync(dto.ProductId) ?? throw new ArgumentException(
+                $"Trying to update product: entity with ProductId {dto.ProductId} not found."
             );
             ModelToEntity(dto, entity);
             _context.Entry(entity).State = EntityState.Modified;

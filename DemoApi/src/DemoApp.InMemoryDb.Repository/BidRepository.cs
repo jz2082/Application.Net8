@@ -29,6 +29,7 @@ public class BidRepository(InMemoryDbContext context, ILogger<BidRepository> log
         return new BidEntity
         {
             HouseId = dto.HouseId,
+            Id = dto.Id,
             Bidder = dto.Bidder,
             Amount = dto.Amount
         };

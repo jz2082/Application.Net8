@@ -224,10 +224,10 @@ public class SpeakerRepository(InMemoryDbContext context, ILogger<SpeakerReposit
         try
         {
             ClearViolation();
-            var entity = await _context.Houses.FindAsync(id) ?? throw new ArgumentException(
+            var entity = await _context.Speakers.FindAsync(id) ?? throw new ArgumentException(
                 $"Trying to delete speaker: entity with ID {id} not found."
             );
-            _context.Houses.Remove(entity);
+            _context.Speakers.Remove(entity);
             await _context.SaveChangesAsync();
             returnValue = true;
         }
