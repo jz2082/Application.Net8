@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application.Framework\Application.Framework.csproj" />
+    <ProjectReference Include="..\DemoApp.DataApi\DemoApp.DataApi.csproj" />
     <ProjectReference Include="..\DemoApp.InMemoryDb.Repository\DemoApp.InMemoryDb.Repository.csproj" />
     <ProjectReference Include="..\InMemoryDb.DataEntity\InMemoryDb.DataEntity.csproj" />
     <ProjectReference Include="..\InMemoryDb.Model\InMemoryDb.Model.csproj" />
