@@ -15,6 +15,8 @@ This repository contains practical projects for learning and demonstration purpo
 - Angular - DemoApp: Frontend Angular application with Docker support
   Designed and developed using Angular 18, PrimeNG, RxJS
   Secured Angular App using Microsoft Entra ID. 
+  Used GitHub Copilot to generate Unit tests (*.spec.ts).
+  Enabled HTTPS self-signed certificate  on Docker for local testing. 
   Implemented CI/CD ymal to deploy to Azure App Service.
   URL: https://angularapp2025.azurewebsites.net/DemoWebApp/dashboard   
 
