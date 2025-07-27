@@ -23,6 +23,11 @@ A modern Angular 18 frontend application with:
 - CI/CD pipeline (YAML) for Azure App Service deployment  
 **Live Demo:** [Dashboard](https://angularapp2025.azurewebsites.net/DemoWebApp/dashboard)
 
+### React - globomantics
+A modern React 18 frontend application with:
+- Next.js
+- HTTPS self-signed certificate support (including Docker)
+
 ## Getting Started
 
 ### Prerequisites
@@ -72,6 +77,7 @@ A modern Angular 18 frontend application with:
 ```
 /DemoApi      # .NET 8 Web API
 /Angular      # Angular frontend
+/React        # React frontend
 ```
 
 ## Contributing
