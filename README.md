@@ -5,12 +5,18 @@ This repository contains practical projects for learning and demonstration purpo
 ## Projects
 
 - DemoApi - DemoApp.DataApi: .NET 8 Web API with in-memory database and Docker support
-
-
+  Designed and developed Lightweight RESTful API using .NET 8, Dependency Injection, Entity Framework, In-Memory DB, Polly(retry/circuit-breaker).  
+  Applied Repository Pattern to decouple data access logic, enhancing testability.
+  Used GitHub Copilot to generate xUnit tests.
+  Enabled HTTPS self-signed certificate  on Docker for local testing. 
+  Implemented CI/CD ymal to deploy to Azure App Service.
+  URL: https://demodataapinet8.azurewebsites.net/swagger/index.html 
 
 - Angular - DemoApp: Frontend Angular application with Docker support
-
-
+  Designed and developed using Angular 18, PrimeNG, RxJS
+  Secured Angular App using Microsoft Entra ID. 
+  Implemented CI/CD ymal to deploy to Azure App Service.
+  URL: https://angularapp2025.azurewebsites.net/DemoWebApp/dashboard   
 
 ## Getting Started
 
@@ -58,9 +64,10 @@ This repository contains practical projects for learning and demonstration purpo
   ```
 
 ## Folder Structure
-
-/DemoApi      # .NET 8 Web API
-/Angular      # Angular frontend
+  ```
+  /DemoApi      # .NET 8 Web API
+  /Angular      # Angular frontend
+  ```
 
 ## Contributing
 
