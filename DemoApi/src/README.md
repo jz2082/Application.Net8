@@ -45,8 +45,13 @@ OR
     2. Write edge cases xUnit tests for all the methods in # SpeakerRepository.cs
 
     xUnit Tests
+    Ctrl+Alt+I: open Copilot Chat (Visual Studio Code)
     dotnet test DemoApp.DataApi.Tests/DemoApp.DataApi.Tests.csproj --filter "FullyQualifiedName~DemoApp.DataApi.Tests"
 
     Using GitHub Copilot Chat to refactor code: (code review example)
     Can you help me refactor the `SpeakerRepository` to fix the issue with the `DeleteAsync` method using the correct entity?
+
+    visual studio code
+    Ctrl+Alt+I: open Copilot Chat 
+    (@workspace  /tests #selection Generate unit tests using xUnit framework for this class)
     
