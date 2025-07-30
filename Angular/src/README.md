@@ -1,4 +1,4 @@
-# AngularDemoapp
+# Angular Demoapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
 
@@ -38,3 +38,10 @@ Add providePrimeNG and provideAnimationsAsync to the list of providers in app.co
 npm install chart.js --save
 
 npm install quill --save
+
+----- 
+Ask Copilot to generate tests 
+
+(@workspace /tests #selection Generate unit tests for this file
+
+-- Generate unit tests for reference.service.ts
