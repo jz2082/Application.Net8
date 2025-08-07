@@ -12,8 +12,8 @@ export const environment = {
     smallWidthBreakPoint: 1024,
     httpRetryCount: 3,
     showLoggerInfoView: true,
-    aboutMessage: 'Development configuration (http://localhost:4203)'
-  },
+    aboutMessage: 'Development configuration (http://localhost:4203)'ng serv - o
+},
   azureAd: {
     authority: 'https://login.microsoftonline.com/peiyan65hotmail.onmicrosoft.com/v2.0',
     client_id: 'fdef9023-f9e8-4af1-9922-e2c9d010b11a',
