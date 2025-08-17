@@ -28,6 +28,9 @@ A modern React 18 frontend application with:
 - Next.js
 - HTTPS self-signed certificate support (including Docker)
 
+### WPF - StockApp
+StockApp.Net8 is a Windows desktop application for monitoring and visualizing stock data, built with .NET 8. It provides real-time updates and is designed with full MVVM (Model-View-ViewModel) support for maintainability and testability.
+
 ## Getting Started
 
 ### Prerequisites
@@ -78,6 +81,7 @@ A modern React 18 frontend application with:
 /DemoApi      # .NET 8 Web API
 /Angular      # Angular frontend
 /React        # React frontend
+/WPF          # Desktop application
 ```
 
 ## Contributing
