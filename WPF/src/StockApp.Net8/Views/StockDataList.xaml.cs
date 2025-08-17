@@ -1,8 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using StockApp.Net8.ViewModels;
+using System.Windows.Controls;
 using System.Xml;
 
-namespace StockApp.Net8;
-using StockApp.Net8.ViewModels;
+namespace StockApp.Net8.Views;
 
 /// <summary>
 /// Interaction logic for StockDataList.xaml
