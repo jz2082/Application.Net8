@@ -11,8 +11,8 @@ public partial class Demo23MainWindow : Page
     public Demo23MainWindow()
     {
         InitializeComponent();
-        //Demol23ViewModel vm = new Demol23ViewModel();
-        //DataContext = vm;
+        Demol23ViewModel vm = new Demol23ViewModel();
+        DataContext = vm;
     }
 
 }
