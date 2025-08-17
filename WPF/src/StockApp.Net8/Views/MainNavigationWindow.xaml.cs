@@ -9,16 +9,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-
-namespace StockApp.Net8;
+namespace StockApp.Net8.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : NavigationWindow
+public partial class MainNavigationWindow : NavigationWindow
 {
-    public MainWindow()
+    public MainNavigationWindow()
     {
         InitializeComponent();
     }
