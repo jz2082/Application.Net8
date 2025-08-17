@@ -1,6 +1,7 @@
-﻿using StockApp.Net6.Models;
+﻿using System.Collections.ObjectModel;
+
+using StockApp.Net6.Models;
 using StockApp.Net6.MVVM;
-using System.Collections.ObjectModel;
 
 namespace StockApp.Net6.ViewModels;
 
@@ -26,8 +27,6 @@ internal class Demol23ViewModel : ViewModelBase
     }
 
     private Item selectedItem;
-
-
 
     public Item SelectedItem
     {

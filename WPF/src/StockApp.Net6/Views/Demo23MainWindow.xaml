@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StockApp.Net6.Views" 
         mc:Ignorable="d"
-        d:DesignHeight="450" d:DesignWidth="800"
-        Title="Demo23MainWindow" 
+        d:DesignHeight="450" d:DesignWidth="800" 
         Height="450" 
-        Width="800">
+        Width="800"
+        Title="Demo23MainWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
