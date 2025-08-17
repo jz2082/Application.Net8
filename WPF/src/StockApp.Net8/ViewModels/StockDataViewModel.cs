@@ -8,7 +8,7 @@ using StockApp.Net8.MVVM;
 
 namespace StockApp.Net8.ViewModels;
 
-internal class StockDataViewModel : ViewModelBase
+public class StockDataViewModel : ViewModelBase
 {
     private CollectionViewSource cvs = new CollectionViewSource();
     private ObservableCollection<StockData> col = new ObservableCollection<StockData>();

@@ -5,7 +5,7 @@ using StockApp.Net6.MVVM;
 
 namespace StockApp.Net6.ViewModels;
 
-internal class Demol23ViewModel : ViewModelBase
+public class Demol23ViewModel : ViewModelBase
 {
     public ObservableCollection<Item> Items { get; set; }
 

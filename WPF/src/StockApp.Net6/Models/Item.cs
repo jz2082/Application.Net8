@@ -1,6 +1,6 @@
 ﻿namespace StockApp.Net6.Models;
 
-internal class Item
+public class Item
 {
     public string Name { get; set; }
     public string SerialNumber { get; set; }
