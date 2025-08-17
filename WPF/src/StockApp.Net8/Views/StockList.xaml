@@ -27,11 +27,11 @@
             </DataTemplate>
         </Grid.Resources>
 
-        <!--
-    <Grid.Background>
-        <ImageBrush ImageSource="watermark.png"/>
-    </Grid.Background>
-    -->
+        
+        <Grid.Background>
+            <ImageBrush ImageSource="pack://application:,,,/Resources/Images/watermark.png"/>
+        </Grid.Background>
+    
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="230" />

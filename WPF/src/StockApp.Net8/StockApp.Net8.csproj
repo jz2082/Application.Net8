@@ -8,4 +8,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Resources\Images\watermark.png" />
+  </ItemGroup>
+
+   <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Utilitis\" />
+    <Folder Include="Resources\Converters\" />
+    <Folder Include="Resources\Styles\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\watermark.png" />
+  </ItemGroup>
+
 </Project>
