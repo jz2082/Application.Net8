@@ -1,12 +1,9 @@
 ﻿using StockApp.Net6.ViewModels;
-using System.Windows.Controls;
+using System.Windows;
 
 namespace StockApp.Net6.Views;
 
-/// <summary>
-/// Interaction logic for Demo23MainWindow.xaml
-/// </summary>
-public partial class Demo23MainWindow : Page
+public partial class Demo23MainWindow : Window
 {
     public Demo23MainWindow()
     {

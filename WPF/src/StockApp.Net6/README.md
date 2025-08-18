@@ -19,6 +19,13 @@ StockApp.Net6 follows the MVVM pattern:
 
 This structure enables easy unit testing and future extension.
 
+## Dependency Injection
+
+install following NGet package
+1. Microsoft.Extensions.DependencyInjection V6.0.0
+2. Microsoft.Extensions.Hosting V6.0.0
+3. Microsoft.Extensions.Logging V6.0.0
+
 ## Getting Started
 
 ### Prerequisites
