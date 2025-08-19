@@ -37,7 +37,4 @@ public class Demol23ViewModel : ViewModelBase
             OnPropertyChanged();
         }
     }
-
-   
-
 }

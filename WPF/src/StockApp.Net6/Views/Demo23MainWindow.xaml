@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StockApp.Net6.Views" 
         mc:Ignorable="d"
-        d:DesignHeight="450" d:DesignWidth="800" 
+        d:DesignHeight="450" d:DesignWidth="500" 
         Height="450" 
-        Width="800"
-        Title="Demo23MainWindow">
+        Width="500"
+        Title="Demo23 - Using ViewModels in MVVM">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -16,9 +16,8 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="560*" />
-                <ColumnDefinition Width="29*"/>
-                <ColumnDefinition Width="211*"/>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
             <DataGrid 
@@ -34,7 +33,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
+            <StackPanel Grid.Column="1">
                 <Label Content="Name" />
                 <TextBox Margin="5,0,5,15" Text="{Binding SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}" />
                 <Label Content="Serial Number" />

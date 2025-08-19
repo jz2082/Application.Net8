@@ -9,20 +9,18 @@ namespace StockApp.Net6.Views;
 /// </summary>
 public partial class Demo24MainWindow : Window
 {
-    private readonly IAbstractFactory<Demo23MainWindow> _factory;
+    private readonly IAbstractFactory<MainWindow> _factory;
 
-    public Demo24MainWindow(IAbstractFactory<Demo23MainWindow> factory)
+    public Demo24MainWindow(IAbstractFactory<MainWindow> factory)
     {
         InitializeComponent();
         var vm = new Demol24ViewModel();
         DataContext = vm;
         _factory = factory;
-        // testing
-        _factory.Create().Show();
     }
 
-    //private void openChildWindow_Click(object sender, RoutedEventArgs e)
-    //{
-    //    _factory.Create().Show();
-    //}
+    private void openChildWindow_Click(object sender, RoutedEventArgs e)
+    {
+        _factory.Create().Show();
+    }
 }

@@ -11,5 +11,4 @@ public partial class Demo23MainWindow : Window
         Demol23ViewModel vm = new Demol23ViewModel();
         DataContext = vm;
     }
-
 }

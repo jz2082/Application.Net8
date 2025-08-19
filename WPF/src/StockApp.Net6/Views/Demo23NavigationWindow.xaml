@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StockApp.Net6.Views"
         mc:Ignorable="d"
-        Title="Demo23NavigationWindow" 
+        Title="Demo23 - NavigationWindow" 
         Height="450" 
-        Width="800"
-        Source="Demo23MainWindow.xaml">
+        Width="800">
 
  </NavigationWindow>

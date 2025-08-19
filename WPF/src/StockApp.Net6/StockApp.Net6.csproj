@@ -15,7 +15,6 @@
   <ItemGroup>
     <Folder Include="Components\" />
     <Folder Include="Resources\Converters\" />
-    <Folder Include="Resources\Styles\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
@@ -27,6 +26,12 @@
 
   <ItemGroup>
     <Resource Include="Resources\Images\watermark.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\UserControls\StockMenuBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
