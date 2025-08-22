@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="StockApp.Net6.Views.UserControls.ShellMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StockApp.Net6.Views.UserControls"
+             xmlns:viewModels="clr-namespace:StockApp.Net6.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance viewModels:ShellMenuViewModel}">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,10,0">
+            <Button Padding="24,0" Command="{Binding OpenCommand, Mode=OneTime}">
+                <TextBlock VerticalAlignment="Center">
+                    <Run Text="File"/>
+                </TextBlock>
+            </Button>
+        </StackPanel>
+
+        <Border Background="#222222"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Padding="12,6">
+            <TextBlock VerticalAlignment="Center" TextAlignment="Center" Foreground="White">
+                <!--
+                <Run Text="{Binding Path=Title, RelativeSource={RelativeSource AncestorType={x:Type windows:ThemedWindow}}}"/>
+                -->
+            </TextBlock>
+        </Border>
+    </DockPanel>
+</UserControl>
