@@ -5,9 +5,9 @@ using StockService.Net8.Services;
 
 namespace StockData.Net8.Services;
 
-public class AccountDataService(StockDataDbContext dbContext, NonQueryDataService<Account> nonQueryDataService) : IAccountService
+public class AccountDataService(StockDataInMemoryDbContext dbContext, NonQueryDataService<Account> nonQueryDataService) : IAccountService
 {
-    private readonly StockDataDbContext _dbContext = dbContext;
+    private readonly StockDataInMemoryDbContext _dbContext = dbContext;
     private readonly NonQueryDataService<Account> _nonQueryDataService = nonQueryDataService;
 
     public async Task<Account> Create(Account entity)

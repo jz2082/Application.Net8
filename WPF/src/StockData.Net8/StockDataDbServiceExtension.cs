@@ -11,7 +11,7 @@ public static class StockDataDbServiceExtension
     public static IServiceCollection AddInMemoryDbService(this IServiceCollection services)
     {
         services
-            .AddDbContext<StockDataDbContext>(config => config
+            .AddDbContext<StockDataInMemoryDbContext>(config => config
                 .EnableSensitiveDataLogging(true)
                 .UseInMemoryDatabase(
                     databaseName: "StockDataDb",

@@ -3,17 +3,12 @@ using StockService.Net8.Models;
 
 namespace StockData.Net8;
 
-public class StockDataDbContext : BaseInMemoryDbContext
+public class StockDataInMemoryDbContext : BaseInMemoryDbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Account> Accounts { get; set; }
     public DbSet<AssetTransaction> AssetTransactions { get; set; }
-    public StockDataDbContext(DbContextOptions options) : base(options) { }
-
-    public StockDataDbContext(string dbName) : base()
-    {
-        _dbName = dbName;
-    }
+    public StockDataInMemoryDbContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

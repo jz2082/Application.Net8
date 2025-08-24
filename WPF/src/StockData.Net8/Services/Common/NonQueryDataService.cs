@@ -4,9 +4,9 @@ using StockService.Net8.Models;
 
 namespace StockData.Net8.Services.Common;
 
-public class NonQueryDataService<T>(StockDataDbContext context) where T : DomainObject
+public class NonQueryDataService<T>(StockDataInMemoryDbContext context) where T : DomainObject
 {
-    private readonly StockDataDbContext _context = context;
+    private readonly StockDataInMemoryDbContext _context = context;
 
     public async Task<T> Create(T entity)
     {

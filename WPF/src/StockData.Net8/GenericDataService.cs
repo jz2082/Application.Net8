@@ -5,9 +5,9 @@ using StockService.Net8.Services;
 
 namespace StockData.Net8;
 
-public class GenericDataService<T>(StockDataDbContext dbContext, NonQueryDataService<T> nonQueryDataService) : IDataService<T> where T : DomainObject
+public class GenericDataService<T>(StockDataInMemoryDbContext dbContext, NonQueryDataService<T> nonQueryDataService) : IDataService<T> where T : DomainObject
 {
-    private readonly StockDataDbContext _dbContext = dbContext;
+    private readonly StockDataInMemoryDbContext _dbContext = dbContext;
     private readonly NonQueryDataService<T> _nonQueryDataService = nonQueryDataService;
 
     public async Task<T> Create(T entity)
