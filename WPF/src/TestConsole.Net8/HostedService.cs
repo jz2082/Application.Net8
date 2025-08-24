@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-using StockData.Net8;
+using StockAppData.Net8;
 using StockService.Net8.Models;
 using StockService.Net8.Services;
 
@@ -45,6 +45,7 @@ public class HostedService(
                 {
                     case 't':
                     case 'T':
+                        // test crate User
                         await _dataService.Create(new User { Username = "test"});
                         Console.WriteLine($"Count = { (await _dataService.GetAll()).Count()}");
                         break;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StockService.Net8.Models;
 
-namespace StockData.Net8;
+namespace StockAppData.Net8;
 
 public class StockDataInMemoryDbContext : BaseInMemoryDbContext
 {

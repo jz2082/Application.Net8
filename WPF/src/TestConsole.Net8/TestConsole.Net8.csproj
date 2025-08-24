@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StockData.Net8\StockData.Net8.csproj" />
+    <ProjectReference Include="..\StockData.Net8\StockAppData.Net8.csproj" />
     <ProjectReference Include="..\StockService.Net8\StockService.Net8.csproj" />
   </ItemGroup>
 

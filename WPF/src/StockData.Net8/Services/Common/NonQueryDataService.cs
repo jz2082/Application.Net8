@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using StockService.Net8.Models;
 
-namespace StockData.Net8.Services.Common;
+namespace StockAppData.Net8.Services.Common;
 
 public class NonQueryDataService<T>(StockDataInMemoryDbContext context) where T : DomainObject
 {

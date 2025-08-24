@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using StockData.Net8.Services;
-using StockData.Net8.Services.Common;
+using StockAppData.Net8.Services;
+using StockAppData.Net8.Services.Common;
 using StockService.Net8.Services;
 
-namespace StockData.Net8;
+namespace StockAppData.Net8;
 
 public static class StockDataDbServiceExtension
 {

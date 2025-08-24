@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StockData.Net8.Services.Common;
+using StockAppData.Net8.Services.Common;
 using StockService.Net8.Models;
 using StockService.Net8.Services;
 
-namespace StockData.Net8.Services;
+namespace StockAppData.Net8.Services;
 
 public class AccountDataService(StockDataInMemoryDbContext dbContext, NonQueryDataService<Account> nonQueryDataService) : IAccountService
 {

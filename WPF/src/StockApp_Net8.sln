@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockApp.Net8.Tests", "Stoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockService.Net8", "StockService.Net8\StockService.Net8.csproj", "{005DC38F-EC1C-4ADF-B794-1E8BC1828441}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockData.Net8", "StockData.Net8\StockData.Net8.csproj", "{8593E08A-DCDD-426A-8D24-A63D3DC7AA35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockAppData.Net8", "StockData.Net8\StockAppData.Net8.csproj", "{8593E08A-DCDD-426A-8D24-A63D3DC7AA35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole.Net8", "TestConsole.Net8\TestConsole.Net8.csproj", "{C03047E9-EF25-4B66-B14D-382B9E3FF280}"
 EndProject

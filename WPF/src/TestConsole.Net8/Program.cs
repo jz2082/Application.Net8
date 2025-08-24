@@ -3,10 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using StockData.Net8;
+using StockAppData.Net8;
 using StockService.Net8;
 using TestConsole.Net8;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TestConsole.ConsoleApp;
 
@@ -34,7 +33,7 @@ public class Program
         .ConfigureServices((context, services) =>
         {
             services
-                 .Configure<AppSetting>(context.Configuration.GetSection("Configuration"))
+                .Configure<AppSetting>(context.Configuration.GetSection("Configuration"))
                 .AddHostedService<HostedService>()
                 .AddInMemoryDbService()
                 .AddStockService();

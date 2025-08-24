@@ -26,8 +26,19 @@
      <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
    </ItemGroup>
 
+   <ItemGroup>
+     <ProjectReference Include="..\StockData.Net8\StockAppData.Net8.csproj" />
+     <ProjectReference Include="..\StockService.Net8\StockService.Net8.csproj" />
+   </ItemGroup>
+
   <ItemGroup>
     <Resource Include="Resources\Images\watermark.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
