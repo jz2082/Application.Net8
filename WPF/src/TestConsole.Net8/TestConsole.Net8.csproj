@@ -18,4 +18,10 @@
     <ProjectReference Include="..\StockService.Net8\StockService.Net8.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -8,7 +8,11 @@ using StockService.Net8.Services;
 
 namespace TestConsole.Net8;
 
-public class HostedService(IOptions<AppSetting> appSetting, IDataService<User> dataService, IHostApplicationLifetime lifeTime, ILogger<HostedService> logger) : BackgroundService
+public class HostedService(
+    IOptions<AppSetting> appSetting, 
+    IDataService<User> dataService, 
+    IHostApplicationLifetime lifeTime, 
+    ILogger<HostedService> logger) : BackgroundService
 {
     private readonly AppSetting _appSetting = appSetting.Value;
     private readonly IDataService<User> _dataService = dataService;
@@ -25,6 +29,14 @@ public class HostedService(IOptions<AppSetting> appSetting, IDataService<User> d
         bool quit = false;
         do
         {
+            Console.WriteLine();
+            Console.WriteLine("AppSetting - - -");
+            Console.WriteLine($"AppSetting.Environment: {_appSetting.Environment}");
+            Console.WriteLine($"AppSetting.DbConnection: {_appSetting.DbConnection}");
+            Console.WriteLine($"AppSetting.CommandTimeout: {_appSetting.CommandTimeout}");
+            Console.WriteLine($"AppSetting.AboutMessage: {_appSetting.AboutMessage}");
+            Console.WriteLine("End AppSetting - - -");
+            Console.WriteLine();
             try
             {
                 var commandChar = System.Console.ReadKey().KeyChar;
