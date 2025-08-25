@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 
 namespace StockApp.Net8.MVVM;
 
+public delegate TViewModel CreateViewModel<TViewModel>() where TViewModel : ViewModelBase;
+
 public class ViewModelBase : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -11,4 +13,6 @@ public class ViewModelBase : INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
+
+    public virtual void Dispose() { }
 }

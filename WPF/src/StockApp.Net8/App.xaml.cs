@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 using StockAppData.Net8;
 using StockService.Net8;
+using StockApp.Net8.ViewModels;
 
 namespace StockApp.Net8
 {
@@ -34,6 +35,7 @@ namespace StockApp.Net8
                         .Configure<AppSetting>(hostContext.Configuration.GetSection("Configuration"))
                         .AddInMemoryDbService()
                         .AddStockService()
+                        .AddSingleton<StockTraderWindow>()
                         .AddSingleton<StockAppNavigationWindow>();
                 })
                 .Build();
@@ -44,8 +46,11 @@ namespace StockApp.Net8
             await AppHost!.StartAsync();
 
             // Demo - StockAppNavigationWindow
-            var startupForm = AppHost.Services.GetRequiredService<StockAppNavigationWindow>();
+            //var startupForm = AppHost.Services.GetRequiredService<StockAppNavigationWindow>();
 
+            // Demo - StockTraderWindow
+            var startupForm = AppHost.Services.GetRequiredService<StockTraderWindow>();
+            startupForm.DataContext = new MainViewModel();
             startupForm.Show();
             base.OnStartup(e);
         }
