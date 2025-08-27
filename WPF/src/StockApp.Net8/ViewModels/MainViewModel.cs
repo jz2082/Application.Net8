@@ -5,12 +5,14 @@ using StockApp.Net8.State.Authenticators;
 using StockApp.Net8.State.Navigators;
 using StockApp.Net8.ViewModels.Factories;
 using StockApp.Net8.Commands;
+using StockService.Net8.Services;
 
 namespace StockApp.Net8.ViewModels;
 
-public class MainViewModel : ViewModelBase
+public class MainViewModel(INavigator navigator) : ViewModelBase
 {
-    public INavigator Navigator { get; set; } = new Navigator();
+    public INavigator Navigator { get; set; } = navigator;
+  
 
     //private readonly IStockTraderViewModelFactory _viewModelFactory;
     //private readonly INavigator _navigator;

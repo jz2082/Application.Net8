@@ -3,17 +3,11 @@ using System.Windows.Input;
 
 namespace StockApp.Net8.State.Navigators;
 
-public enum ViewType
-{
-    Home,
-    Portfolio
-}
-
 public interface INavigator
 {
     ViewModelBase CurrentViewModel { get; set; }
     
-    event Action StateChanged;
+    //event Action StateChanged;
 
     ICommand UpdateCurrentViewModelCommand { get; }
 }

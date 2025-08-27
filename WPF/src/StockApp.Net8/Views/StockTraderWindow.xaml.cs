@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Options;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+using Framework.Net8;
+using StockApp.Net8.ViewModels;
 
 namespace StockApp.Net8.Views
 {
@@ -19,9 +11,16 @@ namespace StockApp.Net8.Views
     /// </summary>
     public partial class StockTraderWindow : Window
     {
-        public StockTraderWindow()
+        private readonly AppSetting _appSetting;
+        private readonly MainViewModel _mainViewModel;
+
+        public StockTraderWindow(IOptions<AppSetting> appSetting, MainViewModel mainViewModel)
         {
+            _appSetting = appSetting.Value;
+            _mainViewModel = mainViewModel;
+
             InitializeComponent();
+            DataContext = _mainViewModel;
         }
     }
 }

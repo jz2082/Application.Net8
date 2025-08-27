@@ -1,13 +1,16 @@
-﻿using StockApp.Net8.Views;
-using System.Windows;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
-using Microsoft.Extensions.Configuration;
+using System.Windows;
 
-using StockAppData.Net8;
-using StockService.Net8;
 using StockApp.Net8.ViewModels;
+using StockApp.Net8.Views;
+using StockAppData.Net8;
+using StockAppApiData.Net8;
+using StockService.Net8;
+
+
 
 namespace StockApp.Net8
 {
@@ -29,12 +32,13 @@ namespace StockApp.Net8
                         .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true, reloadOnChange: true)
                         .AddEnvironmentVariables();
                 })
-                .ConfigureServices((hostContext, services) =>
+                .ConfigureServices((context, services) =>
                 {
                     services
-                        .Configure<AppSetting>(hostContext.Configuration.GetSection("Configuration"))
-                        .AddInMemoryDbService()
-                        .AddStockService()
+                        .AddInMemoryDbService(context.Configuration)
+                        .AddStockApiDataService(context.Configuration)
+                        .AddStockService(context.Configuration)
+                        .AddStockAppService(context.Configuration)
                         .AddSingleton<StockTraderWindow>()
                         .AddSingleton<StockAppNavigationWindow>();
                 })
@@ -45,12 +49,16 @@ namespace StockApp.Net8
         {
             await AppHost!.StartAsync();
 
+            //new MajorIndexService().GetMajorIndex(StockService.Net8.Models.MajorIndexType.DowJones).ContinueWith(x =>
+            //{
+            //    var index = x.Result;
+            //});
+
             // Demo - StockAppNavigationWindow
             //var startupForm = AppHost.Services.GetRequiredService<StockAppNavigationWindow>();
 
             // Demo - StockTraderWindow
             var startupForm = AppHost.Services.GetRequiredService<StockTraderWindow>();
-            startupForm.DataContext = new MainViewModel();
             startupForm.Show();
             base.OnStartup(e);
         }

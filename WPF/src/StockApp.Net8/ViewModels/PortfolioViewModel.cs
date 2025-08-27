@@ -5,21 +5,21 @@ namespace StockApp.Net8.ViewModels;
 
 public class PortfolioViewModel : ViewModelBase
 {
-    public AssetListingViewModel AssetListingViewModel { get; }
+    //public AssetListingViewModel AssetListingViewModel { get; }
 
     //public PortfolioViewModel(AssetStore assetStore)
     //{
     //    AssetListingViewModel = new AssetListingViewModel(assetStore);
     //}
 
-    public PortfolioViewModel()
-    {
-    }
+    //public PortfolioViewModel()
+    //{
+    //}
 
-    public override void Dispose()
-    {
-        AssetListingViewModel.Dispose();
+    //public override void Dispose()
+    //{
+    //    AssetListingViewModel.Dispose();
 
-        base.Dispose();
-    }
+    //    base.Dispose();
+    //}
 }

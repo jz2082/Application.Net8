@@ -25,9 +25,3 @@ StockApp.Net8 is a Windows desktop application for monitoring and visualizing st
 - Windows 10 or later
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - Visual Studio 2022 or later
-
-## Getting Started
-
-1. **Clone the repository:**
-
-

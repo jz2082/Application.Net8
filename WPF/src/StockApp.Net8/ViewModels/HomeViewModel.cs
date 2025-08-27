@@ -4,8 +4,8 @@ namespace StockApp.Net8.ViewModels;
 
 public class HomeViewModel : ViewModelBase
 {
-    public AssetSummaryViewModel AssetSummaryViewModel { get; }
-    public MajorIndexListingViewModel MajorIndexListingViewModel { get; }
+    //public AssetSummaryViewModel AssetSummaryViewModel { get; }
+    //public MajorIndexListingViewModel MajorIndexListingViewModel { get; }
 
     //public HomeViewModel(AssetSummaryViewModel assetSummaryViewModel, MajorIndexListingViewModel majorIndexListingViewModel)
     //{
@@ -13,15 +13,20 @@ public class HomeViewModel : ViewModelBase
     //    MajorIndexListingViewModel = majorIndexListingViewModel;
     //}
 
-    //public HomeViewModel()
+    
+
+    //public override void Dispose()
     //{
+    //    AssetSummaryViewModel.Dispose();
+    //    MajorIndexListingViewModel.Dispose();
+
+    //    base.Dispose();
     //}
 
-    public override void Dispose()
-    {
-        AssetSummaryViewModel.Dispose();
-        MajorIndexListingViewModel.Dispose();
+    public MajorIndexViewModel MajorIndexViewModel { get; set; }
 
-        base.Dispose();
+    public HomeViewModel(MajorIndexViewModel majorIndexViewModel)
+    {
+        MajorIndexViewModel = majorIndexViewModel;
     }
 }

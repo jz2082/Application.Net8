@@ -1,14 +1,17 @@
 ﻿using StockApp.Net8.Commands;
 using StockApp.Net8.MVVM;
+using StockService.Net8.Services;
 using System.Windows.Input;
 
 namespace StockApp.Net8.State.Navigators;
 
-public class Navigator : ViewModelBase, INavigator
+public class Navigator(IMajorIndexService majorIndexService) : ViewModelBase, INavigator
 {
-    private ViewModelBase _currentViewModel;
+    private ViewModelBase? _currentViewModel;
 
-    public ViewModelBase CurrentViewModel
+    private readonly IMajorIndexService _majorIndexService = majorIndexService;
+
+    public ViewModelBase? CurrentViewModel
     {
         get
         {
@@ -25,9 +28,9 @@ public class Navigator : ViewModelBase, INavigator
         }
     }
 
-    public event Action StateChanged;
+    //public event Action StateChanged;
 
-    public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this);
+    public ICommand UpdateCurrentViewModelCommand => new UpdateCurrentViewModelCommand(this, _majorIndexService);
 
    
 }

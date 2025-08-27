@@ -18,24 +18,22 @@
             <DataTemplate DataType="{x:Type viewModels:PortfolioViewModel}">
                 <userControls:PortfolioView />
             </DataTemplate>
-            <!-- BuyView UserControl 
-            <DataTemplate DataType="{x:Type viewmodels:BuyViewModel}">
-                <views:BuyView />
+            <!-- BuyView UserControl -->
+            <DataTemplate DataType="{x:Type viewModels:BuyViewModel}">
+                <userControls:BuyView />
             </DataTemplate>
-            -->
-            <!-- SellView UserControl 
-            <DataTemplate DataType="{x:Type viewmodels:SellViewModel}">
-                <views:SellView />
+            <!-- SellView UserControl -->
+            <DataTemplate DataType="{x:Type viewModels:SellViewModel}">
+                <userControls:SellView />
             </DataTemplate>
-            -->
             <!-- LoginView UserControl 
-            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
-                <views:LoginView />
+            <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+                <userControls:LoginView />
             </DataTemplate>
             -->
             <!-- RegisterView UserControl 
-            <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
-                <views:RegisterView />
+            <DataTemplate DataType="{x:Type viewModels:RegisterViewModel}">
+                <userControls:RegisterView />
             </DataTemplate>
             -->
         </ResourceDictionary>

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using StockAppData.Net8;
 using StockService.Net8;
 using TestConsole.Net8;
+using TestConsole.Net8.ServiceExtension;
 
 namespace TestConsole.ConsoleApp;
 
@@ -35,7 +36,7 @@ public class Program
             services
                 .Configure<AppSetting>(context.Configuration.GetSection("Configuration"))
                 .AddHostedService<HostedService>()
-                .AddInMemoryDbService()
+                .AddInMemoryDbService(context.Configuration)
                 .AddStockService();
         })
         .UseConsoleLifetime();
