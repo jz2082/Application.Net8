@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockAppApiData.Net8", "Sto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockApp.Net8", "StockApp.Net8\StockApp.Net8.csproj", "{F217BF6A-6E69-40F8-9198-C50611E8B7D2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockApp.Net8.Tests", "StockApp.Net8.Tests\StockApp.Net8.Tests.csproj", "{B499D48A-6A1A-4FE8-B23F-9FCDCDB0E8CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole.Net8", "TestConsole.Net8\TestConsole.Net8.csproj", "{93FBA10B-025B-4B69-B707-65441E1FAA1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{F217BF6A-6E69-40F8-9198-C50611E8B7D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F217BF6A-6E69-40F8-9198-C50611E8B7D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F217BF6A-6E69-40F8-9198-C50611E8B7D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B499D48A-6A1A-4FE8-B23F-9FCDCDB0E8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B499D48A-6A1A-4FE8-B23F-9FCDCDB0E8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B499D48A-6A1A-4FE8-B23F-9FCDCDB0E8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B499D48A-6A1A-4FE8-B23F-9FCDCDB0E8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93FBA10B-025B-4B69-B707-65441E1FAA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FBA10B-025B-4B69-B707-65441E1FAA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FBA10B-025B-4B69-B707-65441E1FAA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FBA10B-025B-4B69-B707-65441E1FAA1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

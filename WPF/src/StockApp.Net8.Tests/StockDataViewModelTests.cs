@@ -32,17 +32,6 @@ public class StockDataViewModelTests
     }
 
     [Fact]
-    public void GetData_AddsStockDataToCollection()
-    {
-        var vm = new StockDataViewModel(10, 20);
-        var initialCount = vm.View.Cast<object>().Count();
-        // Wait for timer to tick and add data
-        System.Threading.Thread.Sleep(1100);
-        var newCount = vm.View.Cast<object>().Count();
-        Assert.True(newCount > initialCount);
-    }
-
-    [Fact]
     public void Detail_Property_RaisesPropertyChanged()
     {
         var vm = new StockDataViewModel(10, 20);

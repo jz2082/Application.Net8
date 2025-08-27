@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-using StockAppData.Net8;
+using Framework.Net8;
 using StockService.Net8.Models;
 using StockService.Net8.Services;
 
@@ -32,6 +32,7 @@ public class HostedService(
             Console.WriteLine();
             Console.WriteLine("AppSetting - - -");
             Console.WriteLine($"AppSetting.Environment: {_appSetting.Environment}");
+            Console.WriteLine($"AppSetting.FinancialModelingApiKey: {_appSetting.FinancialModelingApiKey}");
             Console.WriteLine($"AppSetting.DbConnection: {_appSetting.DbConnection}");
             Console.WriteLine($"AppSetting.CommandTimeout: {_appSetting.CommandTimeout}");
             Console.WriteLine($"AppSetting.AboutMessage: {_appSetting.AboutMessage}");
