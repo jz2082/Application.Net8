@@ -1,16 +1,13 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.IO;
+using System.Windows;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.IO;
-using System.Windows;
 
-using StockApp.Net8.ViewModels;
 using StockApp.Net8.Views;
-using StockAppData.Net8;
 using StockAppApiData.Net8;
+using StockAppData.Net8;
 using StockService.Net8;
-
-
 
 namespace StockApp.Net8
 {
@@ -49,11 +46,6 @@ namespace StockApp.Net8
         {
             await AppHost!.StartAsync();
 
-            //new MajorIndexService().GetMajorIndex(StockService.Net8.Models.MajorIndexType.DowJones).ContinueWith(x =>
-            //{
-            //    var index = x.Result;
-            //});
-
             // Demo - StockAppNavigationWindow
             //var startupForm = AppHost.Services.GetRequiredService<StockAppNavigationWindow>();
 
@@ -69,5 +61,4 @@ namespace StockApp.Net8
             base.OnExit(e);
         }
     }
-
 }

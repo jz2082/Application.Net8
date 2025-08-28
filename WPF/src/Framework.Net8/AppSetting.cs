@@ -1,4 +1,4 @@
-﻿namespace Framework.Net8;
+﻿namespace Application.Framework;
 
 public record AppSetting
 {
