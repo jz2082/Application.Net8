@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 
-namespace Application.Framework.Logging;
+namespace Framework.Net8.Logging;
 
 public class InMemoryDbLoggerProvider : ILoggerProvider
 {

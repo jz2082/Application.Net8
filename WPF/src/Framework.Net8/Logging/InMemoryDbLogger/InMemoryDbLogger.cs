@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Application.Framework.Logging;
+namespace Framework.Net8.Logging;
 
 public class InMemoryDbLogger : ILogger
 {

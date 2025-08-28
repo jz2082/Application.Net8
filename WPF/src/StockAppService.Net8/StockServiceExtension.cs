@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using Framework.Net8;
 using StockService.Net8.Services.AuthenticationServices;
 using StockService.Net8.Services.TransactionServices;
 

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Framework.Logging;
+namespace Framework.Net8.Logging;
 
 public static partial class LoggerInMemoryDbRepositoryServiceExtension
 {

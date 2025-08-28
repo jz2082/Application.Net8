@@ -1,6 +1,6 @@
-﻿namespace Application.Framework.Logging;
+﻿namespace Framework.Net8.Logging;
 
-public record LoggerInfoEntity 
+public record LoggerInfoEntity : BaseEntity<Guid>
 {
     public string Environment { get; set; }
     public string MachineName { get; init; }
@@ -21,4 +21,52 @@ public record LoggerInfoEntity
     public string ExceptionType { get; init; }
     public string ExceptionInfo { get; init; }
     public bool Flag { get; set; }
+
+    #region Constructor
+
+    /// <summary>
+    ///     Constructor
+    /// </summary>
+    public LoggerInfoEntity()
+    { }
+
+    /// <summary>
+    ///     Constructor with json string
+    /// </summary>
+    public LoggerInfoEntity(string jsonString)
+    {
+        this.SetValue(jsonString);
+    }
+
+    /// <summary>
+    ///     Constructor with AdditionalInfo string
+    /// </summary>
+    public LoggerInfoEntity(AdditionalInfo info)
+    {
+        if (info != null)
+        {
+            this.Id = Guid.Parse(info.GetStringValue("LoggerId", true));
+            this.MachineName = info.GetStringValue("MachineName", true);
+            this.LoggerName = info.GetStringValue("LoggerName", true);
+            this.Level = info.GetStringValue("Level", true);
+            this.ThreadName = info.GetStringValue("ThreadName", true);
+            this.TimeStamp = Convert.ToDateTime(info.GetValue("TimeStamp", true));
+            this.Application = info.GetStringValue(AppLogger.Application, true);
+            this.Module = info.GetStringValue(AppLogger.Module, true);
+            this.Method = info.GetStringValue(AppLogger.Method, true);
+            this.UserName = info.GetStringValue("UserName", true);
+            this.RenderedType = info.GetStringValue("RenderedType", true);
+            this.ExecutionTime = Convert.ToDouble(info.GetValue("ExecutionTime", true));
+            this.IsJsonMessage = Convert.ToBoolean(info.GetValue("IsJsonMessage", true));
+            this.Message = info.GetStringValue(AppLogger.Message, true);
+            this.ExceptionMessage = info.GetStringValue("ExceptionMessage", true);
+            this.ExceptionType = info.GetStringValue("ExceptionType", true);
+            this.ExceptionInfo = info.GetStringValue("ExceptionInfo", true);
+            this.DateCreated = Convert.ToDateTime(info.GetValue("DateCreated", true));
+            this.DateModified = Convert.ToDateTime(info.GetValue("DateModified", true));
+            this.RenderedInfo = this.IsJsonMessage ? info.GetValue() : info.GetStringValue("RenderedInfo", true);
+        }
+    }
+
+    #endregion
 }

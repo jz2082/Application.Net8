@@ -1,4 +1,4 @@
-﻿namespace Application.Framework;
+﻿namespace Framework.Net8;
 
 public record PollyOptionSetting 
 {

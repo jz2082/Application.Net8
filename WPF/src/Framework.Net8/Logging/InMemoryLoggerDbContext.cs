@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Framework.Logging;
+namespace Framework.Net8.Logging;
 
 public class InMemoryLoggerDbContext : BaseInMemoryDbContext
 {

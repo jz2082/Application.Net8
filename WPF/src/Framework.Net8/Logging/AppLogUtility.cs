@@ -3,7 +3,7 @@ using System.Text;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
-namespace Application.Framework.Logging;
+namespace Framework.Net8.Logging;
 
 public static class AppLogUtility
 {

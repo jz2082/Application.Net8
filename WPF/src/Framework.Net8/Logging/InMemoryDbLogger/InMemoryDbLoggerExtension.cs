@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Framework.Logging;
+namespace Framework.Net8.Logging;
 
 public static class InMemoryDbLoggerExtension
 {
