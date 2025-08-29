@@ -9,10 +9,15 @@ using StockService.Net8.Services;
 
 namespace StockApp.Net8.ViewModels;
 
-public class MainViewModel(INavigator navigator) : ViewModelBase
+public class MainViewModel : ViewModelBase
 {
-    public INavigator Navigator { get; set; } = navigator;
-  
+    public INavigator Navigator { get; set; } 
+
+    public MainViewModel(INavigator navigator)
+    {
+        Navigator = navigator;
+        Navigator.UpdateCurrentViewModelCommand.Execute(ViewType.Home);
+    }
 
     //private readonly IStockTraderViewModelFactory _viewModelFactory;
     //private readonly INavigator _navigator;
